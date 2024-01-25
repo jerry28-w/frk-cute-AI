@@ -1,7 +1,7 @@
 import openai
 
 # Set your OpenAI GPT-3 API key
-openai.api_key = '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'
+openai.api_key = 'OPENAI_API_KEY'
 
 # Function to check vulgarity and generate alternative using GPT-3
 def process_sentence(input_sentence):
