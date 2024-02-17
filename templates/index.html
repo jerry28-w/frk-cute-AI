@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulgarity Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vulgarity Checker</h1>
+    <textarea id="userInput" placeholder="Enter your sentence or paragraph"></textarea><br>
+    <button onclick="checkVulgarity()">Check Vulgarity</button>
+    <div id="result"></div>
+
+    <script>
+        function checkVulgarity() {
+            const userInput = document.getElementById("userInput").value;
+            const resultContainer = document.getElementById("result");
+
+            // Make an AJAX request to your backend with the user input
+            fetch('http://127.0.0.1:5000/check_vulgarity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ sentence: userInput }),
+            })
+
+            .then(response => response.json())
+            .then(data => {
+                // Update the result container with the response
+                resultContainer.textContent = data.result;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
