@@ -17,7 +17,7 @@ def add_cors_headers(response):
 # Function to check if a sentence contains vulgarity
 def contains_vulgarity(sentence):
     # Set up parameters for the API call
-    url = "https://8e36-2405-201-d00f-1023-7994-c9b0-7924-7db1.ngrok-free.app/v1/chat/completions"
+    url = "https://aa6f-2405-201-d00f-1023-9d44-6334-edb8-5f51.ngrok-free.app/v1/chat/completions"
     headers = {"Content-Type": "application/json"}
     data = {
         "messages": [
